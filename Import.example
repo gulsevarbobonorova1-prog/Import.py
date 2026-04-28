@@ -1,0 +1,67 @@
+Python-ning O'rnatilgan Kutubxonalari (import Modullari) To'liq Ro'yxati
+Python o'rnatmasdan import qilish mumkin bo'lgan yuzlab o'rnatilgan kutubxonalar bilan birga keladi. Quyida barcha o'rnatilgan modullarning kategoriyalangan ro'yxati keltirilgan.
+
+1. O'rnatilgan Ma'lumot Turlari va Yordamchi Vositalar
+Modul
+Tavsif
+
+builtins
+Python-ning print(), len(), max() kabi o'rnatilgan funksiyalarini o'z ichiga oladi
+
+types
+Ob'ektlar haqida tur ma'lumotlarini taqdim etadi
+
+collections
+Counter, deque kabi maxsus ma'lumot tuzilmalarini o'z ichiga oladi
+
+Python ma'lumot turlari, to'plamlar va yordamchi funksiyalar bilan ishlashda yordam beradigan bir nechta o'rnatilgan modullarni taqdim etadi.
+
+1. builtins Moduli – Python-ning Standart Funksiyalari
+builtins moduli print(), len(), max() kabi barcha standart funksiyalarni o'z ichiga oladi.
+Misol – builtins Modulidan Foydalanish:
+import builtins
+
+print(builtins.max([4, 7, 2, 9]))  # Natija: 9
+print(builtins.len("Hello"))       # Natija: 5
+
+Eslatma: builtinsni import qilishning hojati yo'q, chunki Python uni avtomatik yuklaydi.
+
+
+2. types Moduli – Python Ob'ekt Turlari bilan Ishlash
+types moduli ob'ekt turlarini aniqlash va maxsus ob'ekt turlarini dinamik yaratishda yordam beradi.
+Misol – types Moduli bilan Ob'ekt Turlarini Tekshirish:
+import types
+
+def my_function():
+    pass
+
+print(isinstance(my_function, types.FunctionType))  # Natija: True
+print(isinstance(10, types.FunctionType))           # Natija: False
+
+types Modulidagi Umumiy Turlar:
+FunctionType → Funksiya ob'ektlari
+LambdaType → Lambda funksiya
+BuiltinFunctionType → len(), print() kabi o'rnatilgan funksiyalar
+
+3. collections Moduli – Kengaytirilgan Ma'lumot Tuzilmalari
+collections moduli Python-ning o'rnatilgan ma'lumot tuzilmalariga (list, dict, tuple) optimallashtirilgan muqobillarni taqdim etadi.
+Misol – Ro'yxatdagi Elementlarni Sanash uchun Counter dan Foydalanish:
+from collections import Counter
+
+data = ['olma', 'banan', 'olma', 'apelsin', 'banan', 'banan']
+counter = Counter(data)
+
+print(counter)  # Natija: Counter({'banan': 3, 'olma': 2, 'apelsin': 1})
+
+collections dagi Boshqa Foydali Sinflar:
+deque → Har ikki tomondan tez qo'shish va o'chirish amallari
+from collections import deque
+
+dq = deque([1, 2, 3])
+dq.append(4)        # o'ngga qo'shish → [1, 2, 3, 4]
+dq.appendleft(0)    # chapga qo'shish → [0, 1, 2, 3, 4]
+dq.pop()            # 4 ni o'chiradi → [0, 1, 2, 3]
+dq.popleft()        # 0 ni o'chiradi → [1, 2, 3]
+print(dq)
+
+defaultdict → Mavjud bo'lmagan kalitlar uchun standart qiymatlari
